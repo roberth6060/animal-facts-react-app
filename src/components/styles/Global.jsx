@@ -1,24 +1,37 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+.animalImg{
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  object-fit: fill;
+
+}
+.animalImg2{
+  object-fit: fill;
+  border-radius: 10px;
+}
+  .animalImg:hover{
+    transform: scale(1.05);
+    transition: 1s;
+  }
   * {
     box-sizing: border-box;
   }
   body {
     background: ${({ theme }) => theme.colors.body};
-    color: hsl(192, 100%, 9%);
     font-family: 'Poppins', sans-serif;
     font-size: 1.15em;
-    margin: 0;
+    margin: auto;
+    min-height: 100%;
+    height: 100%;
   }
   p {
     opacity: 0.6;
     line-height: 1.5;
   }
-  img {
-    max-width: 100%;
-}
+ 
 `;
 
 export default GlobalStyles;

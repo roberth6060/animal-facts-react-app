@@ -11,7 +11,7 @@ const Animals = () => {
   useEffect(() => {
     const fetchAnimals = async () => {
       const { data } = await axios
-        .get("https://zoo-animal-api.herokuapp.com/animals/rand/10")
+        .get("https://zoo-animal-api.herokuapp.com/animals/rand/5")
         .catch((err) => console.log(err));
 
       setAnimals({ name: data });
@@ -25,8 +25,6 @@ const Animals = () => {
     animalArr.push(obj);
   });
 
-  // console.log(animalArr);
-
   return (
     <ReactBootStrap.Table striped bordered hover>
       <thead>
@@ -35,22 +33,27 @@ const Animals = () => {
           <th>Image</th>
           <th>Animal Type</th>
           <th>Name</th>
-          <th>Diet</th>
+          <th>Location</th>
         </tr>
       </thead>
       <tbody>
         {animals.name &&
           animals.name.map((item) => (
             <tr key={item.id}>
+              <td>{item.id}</td>
               <td>
-                <Link to={`/${item.id}`}>{item.id}</Link>
-              </td>
-              <td>
-                <img src={item.image_link} alt={item.name} width="100px" />
+                <Link to={`/${item.id}`}>
+                  <img
+                    className="animalImg"
+                    src={item.image_link}
+                    alt={item.name}
+                    width="100px"
+                  />
+                </Link>
               </td>
               <td>{item.animal_type}</td>
               <td>{item.name}</td>
-              <td>{item.diet}</td>
+              <td>{item.geo_range}</td>
             </tr>
           ))}
       </tbody>

@@ -2,6 +2,7 @@ import Animals from "../../animals-component/animals-component";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { animalArr } from "../../animals-component/animals-component";
+import { Container } from "../../styles/Container.styled";
 
 const Animal = () => {
   const { id } = useParams();
@@ -12,9 +13,16 @@ const Animal = () => {
   console.log(animal.name);
 
   return (
-    <div>
+    <Container>
       <h1>{animal.name}</h1>
-      <img src={animal.image_link} className="Dog" alt="Dog" width="600px" />
+      <img
+        src={animal.image_link}
+        className="animalImg2"
+        alt={animal.name}
+        width="600px"
+        height="600px"
+      />
+      <h2>Animal facts</h2>
       <ul>
         <li>Time active: {animal.active_time}</li>
         <li>Diet: {animal.diet}</li>
@@ -26,7 +34,7 @@ const Animal = () => {
         <li>Maximum weight: {animal.weight_max}</li>
         <li>Lifespan: {animal.lifespan}</li>
       </ul>
-    </div>
+    </Container>
   );
 };
 
