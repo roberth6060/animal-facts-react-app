@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { ThemeProvider } from "styled-components";
 import React, { Component } from "react";
 // import GlobalStyles from "../../styles/Global";
-import Animals from "../../animals-component/animals-component";
+import { Animals } from "../../animals-component/animals-component";
 
 const theme = {
   colors: {
@@ -21,12 +21,7 @@ const Homepage = () => {
       <Fragment>
         <Header />
         <Container>
-          <p>
-            displays it as a list/table/ When clicking on ana item in the
-            list/table, more details about that item should be displayed. <br />{" "}
-            Details about the item should be fetched by clicking on that item
-            and displayed on a separate page.
-          </p>
+          <p>Click on animal image to learn more!</p>
         </Container>
         <Animals />
       </Fragment>

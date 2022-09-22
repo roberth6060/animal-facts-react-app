@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import * as ReactBootStrap from "react-bootstrap";
-// import Table from 'react-bootstrap/Table';
+import { Link, useParams } from "react-router-dom";
 
-const Animals = (props) => {
-  const [animals, setAnimals] = useState({ blogs: [] });
+const animalArr = [];
+
+const Animals = () => {
+  const [animals, setAnimals] = useState({ name: [] });
 
   useEffect(() => {
     const fetchAnimals = async () => {
@@ -12,15 +14,18 @@ const Animals = (props) => {
         .get("https://zoo-animal-api.herokuapp.com/animals/rand/10")
         .catch((err) => console.log(err));
 
-      setAnimals({ blogs: data });
-      console.log(data);
+      setAnimals({ name: data });
     };
     fetchAnimals();
   }, [setAnimals]);
 
-  animals.blogs.map((i) => {
-    console.log(i.diet);
+  console.log(animals.name);
+
+  animals.name.map((obj) => {
+    animalArr.push(obj);
   });
+
+  // console.log(animalArr);
 
   return (
     <ReactBootStrap.Table striped bordered hover>
@@ -34,10 +39,12 @@ const Animals = (props) => {
         </tr>
       </thead>
       <tbody>
-        {animals.blogs &&
-          animals.blogs.map((item) => (
+        {animals.name &&
+          animals.name.map((item) => (
             <tr key={item.id}>
-              <td>{item.id}</td>
+              <td>
+                <Link to={`/${item.id}`}>{item.id}</Link>
+              </td>
               <td>
                 <img src={item.image_link} alt={item.name} width="100px" />
               </td>
@@ -50,4 +57,4 @@ const Animals = (props) => {
     </ReactBootStrap.Table>
   );
 };
-export default Animals;
+export { Animals, animalArr };

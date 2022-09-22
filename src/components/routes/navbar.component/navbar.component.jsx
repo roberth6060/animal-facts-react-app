@@ -1,9 +1,11 @@
 import { Fragment } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import React, { Component } from "react";
 const Navbar = () => (
   <Fragment>
-    <h1>Navbar Section</h1>
+    <h1>
+      <Link to="/">Navbar Section</Link>
+    </h1>
     <Outlet />
   </Fragment>
 );
