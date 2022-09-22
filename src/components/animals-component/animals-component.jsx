@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import * as ReactBootStrap from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
+//Stores Data Fetched from API:
 const animalArr = [];
 
 const Animals = () => {
@@ -21,8 +22,8 @@ const Animals = () => {
 
   console.log(animals.name);
 
-  animals.name.map((obj) => {
-    animalArr.push(obj);
+  animals.name.map((item) => {
+    return animalArr.push(item);
   });
 
   return (

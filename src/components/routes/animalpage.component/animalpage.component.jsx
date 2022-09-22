@@ -1,5 +1,4 @@
-import Animals from "../../animals-component/animals-component";
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { animalArr } from "../../animals-component/animals-component";
 import { Container } from "../../styles/Container.styled";
@@ -10,7 +9,6 @@ const Animal = () => {
   const animal = animalArr.find((animal) => {
     return animal.id === Number(id);
   });
-  console.log(animal.name);
 
   return (
     <Container>
